@@ -22,4 +22,19 @@ fun main() {
         bakeACake()
         cakesBaked++
     } while (cakesBaked < cakesEaten)
+
+    val zoo = Zoo(listOf(Animal("zebra"), Animal("lion")))
+
+    for (animal in zoo) {                                   // 3
+        println("Watch out, it's a ${animal.name}")
+    }
 }
+
+//You can define your own iterators in your classes by implementing the iterator operator in them.
+class Animal(val name:String)
+
+class Zoo(val animals:List<Animal>)
+{
+    operator fun iterator() = animals.iterator()
+}
+
